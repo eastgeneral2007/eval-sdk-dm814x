@@ -38,10 +38,6 @@ endif
 include $(DEVDIR)/bsp/mach/Make.conf
 MAKE_CALL_PARAMS = DEVDIR=$(DEVDIR) VERBOSE=$(VERBOSE) TABINDEX="$(TABINDEX)\040\040"
 
-include $(CLASSES)/force_build.defs
-
-force_build_execute: build
-
 build: dependency_build
 
 sim: dependency_build_sim
@@ -63,3 +59,7 @@ patch: dependency_patch
 unpatch: dependency_unpatch
 
 include $(DEVDIR)/bsp/classes/dependencies.defs
+
+force_build_execute: build
+
+include $(CLASSES)/force_build.defs
